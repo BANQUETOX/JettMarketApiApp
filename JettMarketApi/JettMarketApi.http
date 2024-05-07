@@ -1,0 +1,6 @@
+@JettMarketApi_HostAddress = http://localhost:5010
+
+GET {{JettMarketApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
