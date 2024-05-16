@@ -30,11 +30,11 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUserById(int id)
+        public  IActionResult GetUserById(int id)
         {
             try
             {
-                DbUser user = await manager.GetUserById(id);
+                DbUser user = manager.GetUserById(id).GetAwaiter().GetResult();
                 return Ok(user);
             }
             catch (Exception ex)
@@ -46,10 +46,10 @@ namespace JettMarketApi.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetUserByEmail(string email) {
+        public  IActionResult GetUserByEmail(string email) {
             try
             {
-                DbUser user = await manager.GetUserByEmail(email);
+                DbUser user =  manager.GetUserByEmail(email).GetAwaiter().GetResult();
                 return Ok(user);
             }
             catch (Exception ex)
