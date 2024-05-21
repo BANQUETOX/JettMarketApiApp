@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Interfaces
+namespace DTO.Rols
 {
-    public interface IMapper <I>
+    public class DbRol
     {
-        Task<List<I>> GetAll();
+        public int id {  get; set; }
+        public string name { get; set; }
     }
 }

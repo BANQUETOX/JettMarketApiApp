@@ -1,5 +1,4 @@
-﻿using DataAccess.Interfaces;
-using Dapper;
+﻿using Dapper;
 using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using DTO.Users;
 
 namespace DataAccess.Mappers
 {
-    public class UserMapper : IUserMapper
+    public class UserMapper 
     {
        
         SqlDao sqlDao = SqlDao.GetInstance();
@@ -24,7 +23,7 @@ namespace DataAccess.Mappers
             parameters.Add("@name",user.name);
             parameters.Add("@lastName",user.lastName);
             parameters.Add("@birthday",user.birthDay);
-            /*parameters.Add("@active",user.active);*/
+            parameters.Add("@active", true);
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_CREATE_USER";
             operation.parameters = parameters;
@@ -73,7 +72,6 @@ namespace DataAccess.Mappers
             operation.procedureName = "SP_GET_USER_ID";
             operation.parameters = parameters;  
             var result = sqlDao.QueryProcedure<DbUser>(operation);
-            /*var user = buildUser(result[0]);*/
             return result[0];
 
         }
@@ -104,29 +102,5 @@ namespace DataAccess.Mappers
             var result = sqlDao.QueryProcedure<string>(operation);
             return result[0];
         }
-
-
-       /* internal DbUser buildUser(Dictionary<string, object> row)
-        {
-            DbUser user = new DbUser();
-            user.id = int.Parse(row["Id"].ToString());
-            user.name = row["Name"].ToString(); 
-            user.lastName = row["LastName"].ToString();
-            user.email = row["Email"].ToString();
-            user.birthDay = DateTime.Parse(row["Birthday"].ToString());
-            user.active = bool.Parse(row["Active"].ToString());
-            return user;
-        }
-
-        internal List<DbUser> buildUsers (List<Dictionary<string, object>> listRows) { 
-        
-            var result = new List<DbUser>();
-            foreach (var row in listRows)
-            {
-                var user = buildUser(row);
-                result.Add(user);   
-            }
-            return result;
-        }*/
     }
 }
