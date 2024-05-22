@@ -3,9 +3,11 @@ using DataAccess.Mappers;
 using DTO.Users;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AppLogic
@@ -16,6 +18,13 @@ namespace AppLogic
 
         public void CreateUser(UserInput user)
         {
+            if(mapper.GetByEmail(user.email) != null)
+            {
+                throw new Exception("The email is already registered");
+            }
+            else if (!IsValidEmail(user.email)) {
+                throw new Exception("Not valid email format");
+            }
             _ = mapper.Create(user);
         }
 
@@ -49,6 +58,28 @@ namespace AppLogic
         {
             var result  = await mapper.Login(email, password);
             return result;
+        }
+
+        internal bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return false;
+            }
+
+            try
+            {
+                // Define a regular expression pattern for a valid email
+                string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+                // Check the email with the regex
+                return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+            }
+            catch (Exception)
+            {
+                // If an exception occurs during regex processing, consider the email invalid
+                return false;
+            }
         }
 
         public DbUser CastUserInput(UserInput userInput)
