@@ -32,7 +32,7 @@ namespace DataAccess.Mappers
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@email", email);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_GET_OTP_EMAIL";
+            operation.procedureName = "SP_GET_REGISTER_OTP_EMAIL";
             operation.parameters = parameters;
             var result = sqlDao.QueryProcedure<string>(operation);
             return result[0];
