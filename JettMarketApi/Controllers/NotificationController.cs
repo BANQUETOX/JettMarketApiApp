@@ -40,7 +40,7 @@ namespace JettMarketApi.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult CreateNotification (NotificationInput notification)
         {
             try
