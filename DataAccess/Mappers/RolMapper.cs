@@ -29,7 +29,15 @@ namespace DataAccess.Mappers
             operation.procedureName = "SP_GET_ROL_ID";
             operation.parameters = parameters;
             var result = sqlDao.QueryProcedure<DbRol>(operation);
-            return result[0];
+            if (result.Count > 0)
+            {
+                return result[0];
+            }
+            else
+            {
+                throw new Exception("The id provided dont have a rol asignated");
+            }
+
         }
 
         public int AsingAdminRol(int userId)
