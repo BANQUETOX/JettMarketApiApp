@@ -21,8 +21,13 @@ namespace AppLogic
         public DbRol GetRolById(int id) { 
             return mapper.GetRolById(id);
         }
-        public void AsingAdminRol(int idUser)
+
+        public List<string>GetUserRols(int idUser)
         {
+            return mapper.GetUserRols(idUser);
+        }
+        public void AsingAdminRol(int idUser)
+        { 
             mapper.AsingAdminRol(idUser);
         }
         public void RemoveAdminRol(int idUser)

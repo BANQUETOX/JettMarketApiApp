@@ -38,6 +38,20 @@ namespace JettMarketApi.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult GetUserRols(int idUser)
+        {
+            try
+            {
+                var result = manager.GetUserRols(idUser);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         public IActionResult AsingAdminRol(int idUser)
         {

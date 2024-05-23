@@ -3,6 +3,7 @@ using DataAccess.Dao;
 using DTO.Rols;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,25 @@ namespace DataAccess.Mappers
             else
             {
                 throw new Exception("The id provided dont have a rol asignated");
+            }
+
+        }
+
+        public List<string> GetUserRols(int idUser)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@idUser",idUser);
+            SqlOperation operation = new SqlOperation();
+            operation.procedureName = "SP_GET_ROLS_USER";
+            operation.parameters = parameters;
+            var result = sqlDao.QueryProcedure<string>(operation);
+            if (result.Count > 0)
+            {
+                return result;
+            }
+            else
+            {
+                throw new Exception("The user has no roles");
             }
 
         }
