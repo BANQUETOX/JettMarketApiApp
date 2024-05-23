@@ -30,7 +30,7 @@ namespace DataAccess.Mappers
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@userEmail",userEmail);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_GET_PASSWORD_OTP_USER";
+            operation.procedureName = "SP_GET_PASSWORD_OTP_EMAIL";
             operation.parameters = parameters;
             var result = sqlDao.QueryProcedure<string>(operation);
             return result[0];
