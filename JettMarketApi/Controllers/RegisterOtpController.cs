@@ -38,18 +38,6 @@ namespace JettMarketApi.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult DeleteOtp(string email)
-        {
-            try
-            {
-                manager.DeleteRegisterOtp(email);
-                return Ok("Otp Deleted successfully");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        
     }
 }
