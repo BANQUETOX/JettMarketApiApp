@@ -21,9 +21,9 @@ namespace DataAccess.Mappers
             return result;
         }
 
-        public List<DbNotification> GetUserNotifications(int userId) {
+        public List<DbNotification> GetUserNotifications(int idUser) {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@userId",userId);
+            parameters.Add("@idUser",idUser);
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_GET_NOTIFICATIONS_USER";
             operation.parameters = parameters;
