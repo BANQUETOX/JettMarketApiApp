@@ -85,7 +85,7 @@ namespace JettMarketApi.Controllers
         {
             try
             {
-                manager.AsingCustomerRol(idUser);
+                manager.RemoveCustomerRol(idUser);
                 return Ok("Rol Customer successfully removed from user");
             }
             catch (Exception ex)
