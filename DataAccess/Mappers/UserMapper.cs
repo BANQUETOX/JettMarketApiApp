@@ -53,7 +53,7 @@ namespace DataAccess.Mappers
             return result;
         }
 
-        public async Task<DbUser> GetByEmail(string email)
+        public DbUser GetByEmail(string email)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@email",email);
@@ -61,7 +61,14 @@ namespace DataAccess.Mappers
             operation.procedureName = "SP_GET_USER_EMAIL";
             operation.parameters = parameters;
             var result = sqlDao.QueryProcedure<DbUser>(operation);
-            return result[0];
+            if (result.Count() > 0)
+            {
+                return result[0];
+            }
+            else
+            {
+                return new DbUser();
+            }
         }
 
         public async Task<DbUser> GetById(int id)
