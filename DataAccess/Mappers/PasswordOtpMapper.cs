@@ -17,7 +17,7 @@ namespace DataAccess.Mappers
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@otp", passwordOtp.otp);
-            parameters.Add("@idUser", passwordOtp.email);
+            parameters.Add("@userEmail", passwordOtp.email);
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_CREATE_PASSWORD_OTP";
             operation.parameters = parameters;
