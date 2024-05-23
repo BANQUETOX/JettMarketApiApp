@@ -18,7 +18,8 @@ namespace AppLogic
 
         public void CreateUser(UserInput user)
         {
-            if(mapper.GetByEmail(user.email) != null)
+            DbUser userFound = mapper.GetByEmail(user.email);
+            if (userFound.email != null)
             {
                 throw new Exception("The email is already registered");
             }
@@ -37,9 +38,9 @@ namespace AppLogic
             return await mapper.GetAll();
         }
 
-        public async Task<DbUser> GetUserByEmail(string email)
+        public  DbUser GetUserByEmail(string email)
         {
-            return await mapper.GetByEmail(email);
+            return mapper.GetByEmail(email);
         }
 
         public void UpdateUser(DbUser user)
