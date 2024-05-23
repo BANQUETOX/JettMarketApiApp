@@ -49,7 +49,7 @@ namespace JettMarketApi.Controllers
         public  IActionResult GetUserByEmail(string email) {
             try
             {
-                DbUser user =  manager.GetUserByEmail(email).GetAwaiter().GetResult();
+                DbUser user =  manager.GetUserByEmail(email);
                 return Ok(user);
             }
             catch (Exception ex)
