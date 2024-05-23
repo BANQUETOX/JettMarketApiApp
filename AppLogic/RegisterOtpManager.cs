@@ -21,7 +21,7 @@ namespace AppLogic
         {
             RegisterOtp registerOtp = new RegisterOtp();
             registerOtp.email = email;
-            registerOtp.otp = GenerateOtp();
+            registerOtp.otp = OtpGenerator.GenerateOtp();
             mapper.CreateRegisterOtp(registerOtp);
 
         }
@@ -37,10 +37,6 @@ namespace AppLogic
             return dbRegisterOtp == inputOtp;
         }
 
-        public string GenerateOtp()
-        {
-            string otp = "otpCode";
-            return otp;
-        }
+        
     }
 }
