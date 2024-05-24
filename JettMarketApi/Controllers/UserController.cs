@@ -34,7 +34,7 @@ namespace JettMarketApi.Controllers
         {
             try
             {
-                DbUser user = manager.GetUserById(id).GetAwaiter().GetResult();
+                DbUser user = manager.GetUserById(id);
                 return Ok(user);
             }
             catch (Exception ex)
@@ -94,7 +94,7 @@ namespace JettMarketApi.Controllers
             try
             {
                 var result = manager.Login(email,password);
-                return Ok(result.Result);
+                return Ok(result);
             }
             catch (Exception ex)
             {
