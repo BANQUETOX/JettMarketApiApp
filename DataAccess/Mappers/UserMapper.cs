@@ -15,7 +15,7 @@ namespace DataAccess.Mappers
     {
        
         SqlDao sqlDao = SqlDao.GetInstance();
-        public async Task<int> Create(UserInput user)
+        public int Create(UserInput user)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@email",user.email);
@@ -32,7 +32,7 @@ namespace DataAccess.Mappers
            
         }
 
-        public async Task<int> Delete(int id)
+        public int Delete(int id)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@userId",id);
@@ -44,7 +44,7 @@ namespace DataAccess.Mappers
             return affectedRows;
         }
 
-        public async Task<List<DbUser>> GetAll()
+        public List<DbUser> GetAll()
         {
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_GET_USERS";
@@ -71,7 +71,7 @@ namespace DataAccess.Mappers
             }
         }
 
-        public async Task<DbUser> GetById(int id)
+        public DbUser GetById(int id)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@id",id);
@@ -83,7 +83,7 @@ namespace DataAccess.Mappers
 
         }
 
-        public async Task<int> Update(DbUser user)
+        public int Update(DbUser user)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@userId", user.id);
@@ -98,7 +98,7 @@ namespace DataAccess.Mappers
             return affectedRows;
         }
 
-        public async Task<string> Login(string email, string password)
+        public string Login(string email, string password)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@email",email);
@@ -109,5 +109,7 @@ namespace DataAccess.Mappers
             var result = sqlDao.QueryProcedure<string>(operation);
             return result[0];
         }
+
+       
     }
 }

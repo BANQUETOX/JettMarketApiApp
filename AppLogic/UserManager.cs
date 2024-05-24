@@ -29,13 +29,13 @@ namespace AppLogic
             _ = mapper.Create(user);
         }
 
-        public async Task<DbUser> GetUserById(int id) { 
-         return await mapper.GetById(id);
+        public DbUser GetUserById(int id) { 
+         return mapper.GetById(id);
         }
 
-        public async Task<List<DbUser>> GetUsers()
+        public async List<DbUser> GetUsers()
         {
-            return await mapper.GetAll();
+            return mapper.GetAll();
         }
 
         public  DbUser GetUserByEmail(string email)
@@ -55,9 +55,9 @@ namespace AppLogic
 
         }
 
-        public async Task<string> Login(string email, string password)
+        public string Login(string email, string password)
         {
-            var result  = await mapper.Login(email, password);
+            var result  = mapper.Login(email, password);
             return result;
         }
 
