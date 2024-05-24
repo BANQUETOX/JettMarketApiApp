@@ -33,7 +33,7 @@ namespace AppLogic
          return mapper.GetById(id);
         }
 
-        public async List<DbUser> GetUsers()
+        public List<DbUser> GetUsers()
         {
             return mapper.GetAll();
         }
