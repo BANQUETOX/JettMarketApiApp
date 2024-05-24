@@ -101,5 +101,20 @@ namespace JettMarketApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut]
+        public IActionResult UpdatePassword(int idUser, string newPassword)
+        {
+            try
+            {
+                manager.UpdatePassword(idUser, newPassword);
+                return Ok("Password updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

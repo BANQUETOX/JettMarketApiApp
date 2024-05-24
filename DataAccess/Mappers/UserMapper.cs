@@ -110,6 +110,19 @@ namespace DataAccess.Mappers
             return result[0];
         }
 
+        public int UpdatePassword(int idUser, string newPassword)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@idUser",idUser);
+            parameters.Add("@newPassword",newPassword);
+            SqlOperation operation = new SqlOperation();
+            operation.procedureName = "SP_UPDATE_USER_PASSWORD";
+            operation.parameters = parameters;  
+            var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
+            return affectedRows;
+
+        }
+
        
     }
 }

@@ -61,6 +61,12 @@ namespace AppLogic
             return result;
         }
 
+        public void UpdatePassword(int idUser, string newUser) { 
+            mapper.UpdatePassword(idUser, newUser);
+        
+        }
+
+
         internal bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
