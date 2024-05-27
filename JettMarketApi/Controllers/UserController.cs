@@ -74,8 +74,22 @@ namespace JettMarketApi.Controllers
 
         }
 
+        [HttpPut]
+        public IActionResult UpdatePassword(int idUser, string newPassword)
+        {
+            try
+            {
+                manager.UpdatePassword(idUser, newPassword);
+                return Ok("Password updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpDelete] 
-        public IActionResult deleteUser(int id)
+        public IActionResult DeleteUser(int id)
         {
             try
             {
@@ -95,20 +109,6 @@ namespace JettMarketApi.Controllers
             {
                 var result = manager.Login(email,password);
                 return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPut]
-        public IActionResult UpdatePassword(int idUser, string newPassword)
-        {
-            try
-            {
-                manager.UpdatePassword(idUser, newPassword);
-                return Ok("Password updated successfully");
             }
             catch (Exception ex)
             {
