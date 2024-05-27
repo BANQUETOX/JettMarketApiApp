@@ -13,5 +13,6 @@ namespace DTO.Products
         public string description { get; set; }
         public decimal price { get; set; }
         public decimal quantity { get; set; }
+        public bool available { get; set; }
     }
 }
