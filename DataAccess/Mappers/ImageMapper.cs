@@ -62,6 +62,7 @@ namespace DataAccess.Mappers{
             parameters.Add("@id",id);
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_DELETE_IMAGE";
+            operation.parameters = parameters;
             var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
             return affectedRows;
         }
