@@ -28,7 +28,7 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetProductTypes()
+        public IActionResult GetAllProductTypes()
         {
             try
             {
