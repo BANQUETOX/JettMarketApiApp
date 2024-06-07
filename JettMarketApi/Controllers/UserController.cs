@@ -30,6 +30,20 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetAllUsers()
+        {
+            try
+            {
+                var result = manager.GetUsers();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
         public  IActionResult GetUserById(int id)
         {
             try
