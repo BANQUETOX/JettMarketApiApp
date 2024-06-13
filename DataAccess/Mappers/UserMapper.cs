@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using DataAccess.Dao;
 using DTO.Users;
+using System.Security.Cryptography;
 
 namespace DataAccess.Mappers
 {
@@ -77,9 +78,16 @@ namespace DataAccess.Mappers
             parameters.Add("@id",id);
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_GET_USER_ID";
-            operation.parameters = parameters;  
-            var result = sqlDao.QueryProcedure<DbUser>(operation);
-            return result[0];
+            operation.parameters = parameters;
+            try { 
+                var result = sqlDao.QueryProcedure<DbUser>(operation);
+                return result[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return new DbUser();
+            }
 
         }
 

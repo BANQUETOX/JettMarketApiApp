@@ -124,6 +124,7 @@ namespace AppLogic
 
         public bool ExistUser(int id){
             var userFound = mapper.GetById(id);
+
             if (userFound.id == 0){
                 return false;
             }
