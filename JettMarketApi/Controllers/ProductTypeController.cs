@@ -69,11 +69,11 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AsingProductType(int idProduct, int idType)
+        public IActionResult AssingProductType(int idProduct, int idType)
         {
             try
             {
-                manager.AsingProductType(idProduct, idType);
+                manager.AssingProductType(idProduct, idType);
                 return Ok("Type assigned to product successfully");
             }
             catch (Exception ex)

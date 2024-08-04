@@ -26,17 +26,17 @@ namespace AppLogic
         {
             return mapper.GetUserRols(idUser);
         }
-        public void AsingAdminRol(int idUser)
+        public void AssingAdminRol(int idUser)
         { 
-            mapper.AsingAdminRol(idUser);
+            mapper.AssingAdminRol(idUser);
         }
         public void RemoveAdminRol(int idUser)
         {
             mapper.RemoveAdminRol(idUser);
         }
-        public void AsingCustomerRol(int idUser)
+        public void AssingCustomerRol(int idUser)
         {
-            mapper.AsingCustomerRol(idUser);
+            mapper.AssingCustomerRol(idUser);
         }
         public void RemoveCustomerRol(int idUser)
         {

@@ -29,7 +29,9 @@ namespace AppLogic
         public List<DbProduct> GetAllProducts() { 
             return mapper.GetAllProducts();
         }
-
+        public DbProduct GetProductById(int id) { 
+         return mapper.GetProductById(id);
+        }
         public List<DbProduct> GetProductsInStock()
         {
             return mapper.GetInStockProducts();

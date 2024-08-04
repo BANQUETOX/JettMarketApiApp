@@ -16,8 +16,8 @@ namespace JettMarketApi.Controllers
         {
             try
             {
-                manager.CreateBill(bill);
-                return Ok("Bill created successfully");
+                int billCreatedId = manager.CreateBill(bill);
+                return Ok(billCreatedId);
             }
             catch (Exception ex)
             {
@@ -26,11 +26,11 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AsingProductToBill(int idBill, int idProduct)
+        public IActionResult AssingProductToBill(int idBill, int idProduct, int productsAmount)
         {
             try
             {
-                manager.AsingProductToBill(idBill, idProduct);
+                manager.AssingProductToBill(idBill, idProduct);
                 return Ok("Product asigned to bill successfully");
             }
             catch (Exception ex)

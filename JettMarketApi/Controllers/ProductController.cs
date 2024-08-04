@@ -2,6 +2,7 @@
 using DTO.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JettMarketApi.Controllers
 {
@@ -20,6 +21,20 @@ namespace JettMarketApi.Controllers
             }
             catch (Exception ex) { 
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetProductById(int id)
+        {
+            try
+            {
+                var product = manager.GetProductById(id);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
             }
         }
         [HttpGet]

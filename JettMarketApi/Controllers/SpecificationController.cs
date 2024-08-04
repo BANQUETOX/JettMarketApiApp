@@ -25,9 +25,9 @@ namespace JettMarketApi.Controllers{
         }
 
         [HttpPost]
-        public IActionResult AsingSpecificationToProduct(int idSpecification, int idProdcut){
+        public IActionResult AssingSpecificationToProduct(int idSpecification, int idProdcut){
             try{
-                manager.AsingSpecificationToProduct(idSpecification,idProdcut);
+                manager.AssingSpecificationToProduct(idSpecification,idProdcut);
                 return Ok("Specification asigned successfully");
             }
             catch(Exception ex){

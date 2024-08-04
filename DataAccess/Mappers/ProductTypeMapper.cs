@@ -57,13 +57,13 @@ namespace DataAccess.Mappers
         }
 
 
-        public int AsingTypeToProduct(int idProduct, int idType)
+        public int AssingTypeToProduct(int idProduct, int idType)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@idProduct", idProduct);
             parameters.Add("@idType",idType);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_ASING_PRODUCT_TYPE";
+            operation.procedureName = "SP_ASSING_PRODUCT_TYPE";
             operation.parameters = parameters;
             var rowsAffected = sqlDao.ExecuteStoredProcedure(operation);
             return rowsAffected;

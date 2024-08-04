@@ -60,12 +60,12 @@ namespace DataAccess.Mappers
 
         }
 
-        public int AsingAdminRol(int userId)
+        public int AssingAdminRol(int userId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@userId",userId);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_ASING_ADMIN";
+            operation.procedureName = "SP_ASSING_ADMIN";
             operation.parameters = parameters;
             var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
             return affectedRows;
@@ -81,12 +81,12 @@ namespace DataAccess.Mappers
             var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
             return affectedRows;
         }
-        public int AsingCustomerRol(int userId)
+        public int AssingCustomerRol(int userId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@userId", userId);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_ASING_CUSTOMER";
+            operation.procedureName = "SP_ASSING_CUSTOMER";
             operation.parameters = parameters;
             var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
             return affectedRows;

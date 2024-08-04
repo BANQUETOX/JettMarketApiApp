@@ -31,8 +31,8 @@ namespace AppLogic{
             mapper.DeleteSpecification(id);
         }
 
-        public void AsingSpecificationToProduct(int idSpecification, int idProdcut){
-            mapper.AsingSpecificationToProduct(idSpecification,idProdcut);
+        public void AssingSpecificationToProduct(int idSpecification, int idProdcut){
+            mapper.AssingSpecificationToProduct(idSpecification,idProdcut);
         }
 
         public void  RemoveSpecificationFromProduct(int idSpecification, int idProdcut){

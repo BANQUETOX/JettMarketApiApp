@@ -22,8 +22,8 @@ namespace DataAccess.Mappers
             SqlOperation operation = new SqlOperation();
             operation.procedureName = "SP_CREATE_BILL";
             operation.parameters = parameters;
-            var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
-            return affectedRows;
+            var createdBillId = sqlDao.QueryProcedure<int>(operation);
+            return createdBillId[0];
         }
 
         public List<DbBill> GetAllBills()
@@ -69,13 +69,13 @@ namespace DataAccess.Mappers
             return affectedRows;
         }
 
-        public int AsingProductToBill(int idBill, int idProduct)
+        public int AssingProductToBill(int idBill, int idProduct)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@idBill",idBill);
             parameters.Add("@idProduct",idProduct);
             SqlOperation operation = new SqlOperation();
-            operation.procedureName = "SP_ASING_PRODUCT_BILL";
+            operation.procedureName = "SP_ASSING_PRODUCT_BILL";
             operation.parameters = parameters;
             var rowsAffected = sqlDao.ExecuteStoredProcedure(operation);    
             return rowsAffected;

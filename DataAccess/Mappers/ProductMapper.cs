@@ -26,7 +26,15 @@ namespace DataAccess.Mappers
             var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
             return affectedRows;
         }
-
+        public DbProduct GetProductById(int id) {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("id",id);
+            SqlOperation operation = new SqlOperation();
+            operation.procedureName = "SP_GET_PRODUCT_ID";
+            operation.parameters = parameters;
+            var product = sqlDao.QueryProcedure<DbProduct>(operation);
+            return product[0];
+        }
         public List<DbProduct> GetAllProducts()
         {
             SqlOperation operation = new SqlOperation();

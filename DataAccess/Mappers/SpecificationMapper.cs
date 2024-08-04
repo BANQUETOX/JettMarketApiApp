@@ -57,12 +57,12 @@ namespace DataAccess.Mappers
             return affectedRows;
         }
 
-        public int AsingSpecificationToProduct(int idSpecification, int idProdcut){
+        public int AssingSpecificationToProduct(int idSpecification, int idProdcut){
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@idSpecification",idSpecification);
                 parameters.Add("@idProduct",idProdcut);
                 SqlOperation operation = new SqlOperation();
-                operation.procedureName = "SP_ASING_SPECIFICATION_PRODUCT";
+                operation.procedureName = "SP_ASSING_SPECIFICATION_PRODUCT";
                 operation.parameters = parameters;
                 var affectedRows = sqlDao.ExecuteStoredProcedure(operation);
                 return affectedRows;

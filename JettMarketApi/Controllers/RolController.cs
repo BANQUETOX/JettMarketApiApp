@@ -53,11 +53,11 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AsingAdminRol(int idUser)
+        public IActionResult AssingAdminRol(int idUser)
         {
             try
             {
-                manager.AsingAdminRol(idUser);
+                manager.AssingAdminRol(idUser);
                 return Ok("Rol Admin successfully asigned to user");
             }
             catch(Exception ex)
@@ -81,11 +81,11 @@ namespace JettMarketApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AsingCustomerRol(int idUser)
+        public IActionResult AssingCustomerRol(int idUser)
         {
             try
             {
-                manager.AsingCustomerRol(idUser);
+                manager.AssingCustomerRol(idUser);
                 return Ok("Rol Customer successfully asigned to user");
             }
             catch (Exception ex)

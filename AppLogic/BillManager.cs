@@ -14,8 +14,8 @@ namespace AppLogic
 
         internal BillMapper mapper = new BillMapper();
 
-        public void CreateBill(InputBill bill) {
-            mapper.CreateBill(bill);
+        public int CreateBill(InputBill bill) {
+            return mapper.CreateBill(bill);
         }
 
         public List<DbBill> GetAllBills()
@@ -37,9 +37,9 @@ namespace AppLogic
             mapper.DeleteBill(id);
         }
 
-        public void AsingProductToBill(int idBill, int idProduct)
+        public void AssingProductToBill(int idBill, int idProduct)
         {
-            mapper.AsingProductToBill(idBill, idProduct);
+            mapper.AssingProductToBill(idBill, idProduct);
         }
 
         public void RemoveProductFromBill(int idBill, int idProduct)

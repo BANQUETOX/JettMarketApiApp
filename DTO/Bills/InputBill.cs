@@ -9,7 +9,6 @@ namespace DTO.Bills
     public class InputBill
     {
         public float amount {  get; set; }
-        public int idBillProducts { get; set; }
         public int idUser {  get; set; }
         public bool paid { get; set; }
     }

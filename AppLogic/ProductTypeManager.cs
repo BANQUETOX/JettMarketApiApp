@@ -31,9 +31,9 @@ namespace AppLogic
             mapper.DeleteProductType(idProductType);
         }
 
-        public void AsingProductType(int idProduct, int idType)
+        public void AssingProductType(int idProduct, int idType)
         {
-            mapper.AsingTypeToProduct(idProduct, idType);
+            mapper.AssingTypeToProduct(idProduct, idType);
         }
         public void RemoveProductType(int idProduct, int idType)
         {
